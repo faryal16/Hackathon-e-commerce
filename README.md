@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Figma Hackathon E-Commerce Project
 
-## Getting Started
+This repository showcases a modern **E-Commerce website** developed during the Figma Hackathon. The project leverages **Next.js**, **Tailwind CSS**, and **ShadCN/UI** to build a responsive, scalable, and visually stunning platform.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Responsive Design:** Optimized for all devices, from mobile to desktop.
+- **Next.js Routing:** Efficient, file-based routing for a seamless user experience.
+- **Tailwind CSS Styling:** Utility-first CSS framework for quick and consistent styling.
+- **ShadCN/UI Components:** Elegant and accessible prebuilt components for enhanced UI/UX.
+- **Performance Focused:** Optimized rendering and lightweight assets for better user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Components:** [ShadCN/UI](https://shadcn.dev/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Key Features
+## 🚀 Responsive Design
+Fully optimized for all screen sizes: mobile, tablet, and desktop.
+Tested across devices to ensure pixel-perfect layouts.
+## 🛤️ Dynamic Routing with Next.js
+File-based routing for quick page development.
+Pre-rendered pages for improved performance (Static and Server-Side Rendering).
+## 🎨 Tailwind CSS Styling
+Rapid styling with a utility-first CSS framework.
+Consistent design language with custom configurations.
+## 🖌️ ShadCN/UI Components
+Accessible and reusable components for a polished UI/UX.
+Prebuilt components enhanced with Tailwind CSS styling.
+## ⚡ Optimized Performance
+Lightweight assets and optimized rendering for faster load times.
+Performance-focused development to improve Core Web Vitals.
+## 🔄 Smooth User Flows
+Intuitive navigation for browsing products and completing purchases.
+Clear, user-friendly design for easy interaction.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
