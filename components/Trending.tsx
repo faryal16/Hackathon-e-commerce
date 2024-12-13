@@ -3,17 +3,17 @@ import Image from 'next/image'
 
 const Trending = () => {
   return (
-    <div className="bg-white  flex flex-col justify-center items-center p-4">
+    <div className= "wrapper bg-white  flex flex-col justify-center items-center p-4">
       <h1 className="text-3xl md:text-4xl lg:text-5xl mb-20 mt-20 text-[#0D0E43] font-semibold">
       Trending Products
       </h1>
       <div className="">
-        <div className="grid grid-cols-1 bg-white sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10 lg:gap-20 w-full">
+        <div className="grid grid-cols-1  bg-white sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  w-full">
           {/* First Item */}
 
-          <div className="w-[270px] h-[361px]  shadow-lg space-y-3 flex flex-col items-center">
+          <div className="h-[361px] hover:bg-pink-300 shadow-lg space-y-3 flex flex-col items-center">
            
-          <div className="bg-[#F6F7FB] h-[261px] w-[90%] flex flex-col justify-center items-center">
+          <div className="bg-[#F6F7FB]  h-[261px] w-[90%] flex flex-col justify-center items-center">
              <Image
               src="/trending/1.png"
               width={300}
@@ -30,7 +30,7 @@ const Trending = () => {
           </div>
           {/* second Item */}
 
-          <div className="w-[270px] h-[361px]  shadow-lg space-y-3 flex flex-col items-center">
+          <div className=" h-[361px] hover:bg-pink-300  shadow-lg space-y-3 flex flex-col items-center">
            
           <div className="bg-[#F6F7FB] h-[261px] w-[90%] flex flex-col justify-center items-center">
              <Image
@@ -49,7 +49,7 @@ const Trending = () => {
           </div>
           {/* Third Item */}
 
-          <div className="w-[270px] h-[361px]  shadow-lg space-y-3 flex flex-col items-center">
+          <div className=" h-[361px] hover:bg-pink-300 shadow-lg space-y-3 flex flex-col items-center">
            
           <div className="bg-[#F6F7FB] h-[261px] w-[90%] flex flex-col justify-center items-center">
              <Image
@@ -68,7 +68,7 @@ const Trending = () => {
           </div>
           {/* Forth Item */}
 
-          <div className="w-[270px] h-[361px]  shadow-lg space-y-3 flex flex-col items-center">
+          <div className=" h-[361px] hover:bg-pink-300 shadow-lg space-y-3 flex flex-col items-center">
            
           <div className="bg-[#F6F7FB] h-[261px] w-[90%] flex flex-col justify-center items-center">
              <Image

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Discount() {
   return (
-    <div className="flex flex-col items-center justify-between  px-6 ">
+    <div className="wrapper flex flex-col items-center justify-between  px-6 ">
     <h1 className="text-3xl md:text-4xl lg:text-5xl mb-10 mt-20 text-[#0D0E43] font-semibold">
     Discount Item
       </h1>
@@ -13,9 +13,9 @@ export default function Discount() {
       <div className="flex justify-center space-x-4 md:space-x-12">
 
 
-        <Link href="/new-arrivals" className="text-base md:text-lg text-[#FB2E86] underline font-semibold">Wood Chair</Link>
-        <Link href="/best-sellers" className="text-base md:text-lg text-[#0D0E43] font-semibold">Plastic Chair</Link>
-        <Link href="/featured" className="text-base md:text-lg text-[#0D0E43] font-semibold">Sofa Colletion</Link>
+        <Link href="/new-arrivals" className="text-base md:text-lg text-[#0D0E43] hover:text-[#FB2E86] hover:underline font-semibold">Wood Chair</Link>
+        <Link href="/best-sellers" className="text-base md:text-lg text-[#0D0E43] hover:text-[#FB2E86] hover:underline font-semibold">Plastic Chair</Link>
+        <Link href="/featured" className="text-base md:text-lg text-[#0D0E43] hover:text-[#FB2E86] hover:underline font-semibold">Sofa Colletion</Link>
         
       </div>
       <div className="flex flex-col lg:flex-row  ">

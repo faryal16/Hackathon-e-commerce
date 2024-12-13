@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Items = () => {
   return (
-    <div className="  mt-12">
+    <div className="wrapper  mt-12">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 ml-40 md:ml-0 grid-cols-1 gap-8">
         {/* First Item */}
         <div className="w-full max-w-[420px] h-[270px] flex flex-col bg-[#FFF6FB] p-4">

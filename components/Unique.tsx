@@ -5,7 +5,7 @@ export default function UniqueProduct() {
     
 
     return (
-        <div className=" bg-[#F1F0FF] px-4 py-8 flex flex-col justify-center items-center md:flex-row">
+        <div className="my-[50px] bg-[#F1F0FF] px-4 py-8 flex flex-col justify-center items-center md:flex-row">
             <div className="flex-1">
                 <Image src="/images/1.png" width={500} height={300} alt="B&B Italian Sofa" className="w-full h-auto object-cover" />
             </div>

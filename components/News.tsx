@@ -24,9 +24,9 @@ const News = () => {
         </button>
         </div>
       </div>
-      <div className="flex justify-center items-center mt-20">
+      <div className="flex justify-center items-center mt-28">
 
-<Image src="/images/4.png" alt='news' width={400} height={400}/>
+<Image src="/images/4.png" alt='news' width={500} height={500}/>
       </div>
       
     </div>

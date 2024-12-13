@@ -14,7 +14,7 @@ import Unique from "@/components/Unique";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <HeroSection/>
       <Featured/>
       <Latested />

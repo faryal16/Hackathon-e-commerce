@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function StaticOffers() {
     return (
-        <div className=" px-4 py-8">
+        <div className="wrapper px-4 py-8">
              <h1 className="text-3xl md:text-4xl justify-center flex lg:text-5xl mb-20 mt-20 text-[#0D0E43] font-semibold">
              What Shopex Offer!
       </h1>

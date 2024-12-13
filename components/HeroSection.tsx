@@ -10,11 +10,11 @@ export default function HeroSection() {
 
       {/* Foreground content */}
       <div className="z-10 flex flex-col md:flex-row  w-full md:w-[644px] h-full md:h-[248px] ml-0 md:ml-[250px] justify-between items-center px-4">
-      <div className="absolute top-0 left-0 md:w-96 md:h-96 w-60 h-60 lg:w-[384px]  lg:h-[384px]">
+      <div className="absolute top-0 sm:left-0 left-24 md:w-96 md:h-96 w-60 h-60 lg:w-[384px]  lg:h-[384px]">
         <Image src="/images/home2.png" fill objectFit="cover" alt="Background" />
       </div>
         {/* Text content in the middle */}
-        <div className="text-left space-y-8 md:ml-4 ml-40  mb-0 flex-1">
+        <div className="text-left space-y-8 md:ml-4 mt-56  mb-32 flex-1">
           <p className="text-sm md:text-lg font-bold text-[#FB2E86] mt-2">
             Best Furniture For Your Castle
           </p>
