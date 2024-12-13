@@ -2,7 +2,7 @@ import Acceory from '@/components/Acceory'
 import Title from '@/components/Title'
 import React from 'react'
 import Image from 'next/image'
-import Grid from '@/components/Grid'
+
 import { FaStar } from "react-icons/fa";
 import { IoIosCheckboxOutline } from "react-icons/io";
 import { Search } from 'lucide-react'

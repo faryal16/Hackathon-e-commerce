@@ -50,14 +50,14 @@ const latest = [
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8   mt-8 mb-6">
 
 {
-  latest.map( ( index) => {
+  latest.map( ( index , item) => {
     return (
-      <div className="group w-full   shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+      <div key={item} className="group w-full   shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
         <div className="w-[320px] relative group-hover:bg-[#fcfbfb]  bg-[#F7F7F7] h-[300px] flex justify-center items-center">
           
         <Image src={index.img} alt='product1' width={280} height={300} className='bject-cover p-4 w-full h-full'/>
          <div className="absolute inset-0  bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity flex items-start flex-col justify-end gap-4">
-                  <img src="/latestet/7.png" alt='sale' className='mb-36 ml-4'/>
+                  <Image src="/latestet/7.png" alt='sale' className='mb-36 ml-4'/>
                   <button className="p-2 ml-2   bg-white rounded-full text-gray-700 hover:bg-gray-200">
                    <FaRegHeart/>
                   </button>

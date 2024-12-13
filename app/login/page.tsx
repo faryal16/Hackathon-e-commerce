@@ -10,7 +10,7 @@ import router from 'next/router';
 import Title from '@/components/Title'
 import React from 'react'
 
-const login = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -40,7 +40,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         throw new Error('Login failed');
       }
     } catch (error) {
-      alert('Login failed');
+      alert(`Login failed ${error}`);
     }
   };
   
@@ -114,4 +114,4 @@ const handleSubmit = async (e: React.FormEvent) => {
   )
 }
 
-export default login
+export default Login

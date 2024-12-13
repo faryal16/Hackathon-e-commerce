@@ -1,13 +1,13 @@
 'use client';
 
-import { Phone, Mail } from 'lucide-react'; // Import required icons
+
 import { useState } from 'react';
 import Image from 'next/image';
 
 import Title from "@/components/Title";
 import React from "react";
 
-const contact = () => {
+const Contact = () => {
 
   const [formData, setFormData] = useState({
     name: '',
@@ -34,7 +34,7 @@ const contact = () => {
         throw new Error('Failed to send message');
       }
     } catch (error) {
-      alert('Failed to send message');
+      alert(`Failed to send message ${error}`);
     }
   };
   return (<main className=' mb-[120px]'>
@@ -174,4 +174,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

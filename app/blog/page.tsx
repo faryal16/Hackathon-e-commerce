@@ -40,13 +40,13 @@ const page = () => {
       <Title title={"Blog Page"} tag={"Blog Page"} />
       <div className="wrapper my-[120px]">
         {/* Blog Section */}
-        {topBlogs.map((blog) => {
+        {topBlogs.map((blog , index) => {
           return(
 
-          <div className="">
+          <div key={index}>
           {/* Blog 1 */}
           <div className="mb-[20px]">
-            <div className="">
+            <div >
               <Image src={blog.img} alt={blog.title} width={800} height={500} />
             </div>
             {/* content */}

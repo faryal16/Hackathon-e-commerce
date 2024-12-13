@@ -73,9 +73,9 @@ const CartPage = () => {
 </TableRow>
     
   </TableHeader>
-  {cart.map((item) => {
+  {cart.map((item, index) => {
 return(
-  <TableBody className="my-96">
+  <TableBody key={index} className="my-96">
 <TableRow>
       <TableCell className="text-left">
         <div className="flex justify-start items-center p-4 gap-4">
@@ -95,7 +95,7 @@ return(
                 />
             </div> 
             {/* content */}
-            <div className="">
+            <div >
                 <h1 className="text-black text-xl font-semibold">{item.name}</h1>
                 <p className="text-gray-500 text-base">Color:{item.color}</p>
                 <p className="text-gray-500 text-base">Size:{item.size}</p>

@@ -1,6 +1,6 @@
 import CartTable from '@/components/CartTable'
 import Title from '@/components/Title'
-import { Button } from '@/components/ui/button'
+
 import React from 'react'
 
 const cart = () => {
