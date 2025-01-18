@@ -12,6 +12,8 @@ import { Button } from "./ui/button";
   
 
 const CartPage = () => {
+
+  
     const cart = [
         {
             img:"/cart/1.png",

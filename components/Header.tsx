@@ -1,37 +1,74 @@
-'use client';
+"use client"; // This ensures the component runs on the client side
 
-import Link from 'next/link';
+import Link from "next/link";
 import { MdOutlineEmail, MdPhoneInTalk } from "react-icons/md";
-import { IoIosArrowDown, IoIosContact } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
-import { LuShoppingCart } from "react-icons/lu";
+import { useUser, ClerkLoaded,  SignInButton, UserButton } from "@clerk/nextjs";
+import { User } from "lucide-react";
+import CartIcon from "./CartIcon";
 
 export default function Header() {
+  const { user } = useUser(); // Fetch the user client-side
+
   return (
-    <header className=" bg-[#7E33E0] text-[#F1F1F1]">
+    <header className="bg-[#7E33E0] text-[#F1F1F1]">
       <div className="wrapper px-4 py-2">
-        <div className="flex flex-wrap justify-between  items-center">
+        <div className="flex flex-wrap justify-between items-center">
           {/* Centered Logo and Shop Now section */}
           <div className="flex-1 flex sm:flex-row flex-col justify-center items-center space-x-4 md:space-y-0 space-y-2 md:space-x-8">
-            <Link href="/" className="text-sm md:text-base flex justify-center items-center gap-2 md:gap-4 font-semibold">
-              <MdOutlineEmail /> mhhasanul@gmail.com
+            <Link href="/">
+              <div className="text-sm md:text-base flex justify-center items-center gap-2 md:gap-4 font-semibold">
+                <MdOutlineEmail />
+                <p className="text-xs">Welcome Dear</p>
+                <p className="font-semibold">{user?.fullName }</p>
+              </div>
             </Link>
-            <Link href="/" className="text-sm md:text-base flex justify-center items-center gap-2 md:gap-4 font-semibold">
-              <MdPhoneInTalk /> (12345)67890
+            <Link
+              href="/"
+              className="text-sm md:text-base flex justify-center items-center gap-2 md:gap-4 font-semibold"
+            >
+              <MdPhoneInTalk /> (12345) 67890
             </Link>
           </div>
 
           {/* Language Selector with dropdown */}
-          <div className="flex text-sm md:text-base font-semibold items-center">
-            <Link href="/" className="flex justify-center items-center gap-1 md:gap-2 mr-2 md:mr-4">English <IoIosArrowDown /></Link>
-            <Link href="/" className="flex justify-center items-center gap-1 md:gap-2 mr-2 md:mr-4">USD <IoIosArrowDown /></Link>
-            <Link href="/login" className="flex  justify-center items-center gap-1 md:gap-2 mr-2 md:mr-4">Login <IoIosContact/></Link>
-            <Link href="/shop_list" className="flex justify-center items-center gap-1 md:gap-2 mr-2 md:mr-4">Wishlist <FaRegHeart/></Link>
-            <Link href="/shopping_cart" className="flex justify-center items-center gap-1 md:gap-2 mr-2 md:mr-4"><LuShoppingCart /></Link>
+          <div className="flex text-sm md:text-lg gap-4 font-semibold items-center">
+            <Link href="/" className="flex justify-center items-center gap-1 md:gap-2">
+              English <IoIosArrowDown />
+            </Link>
+            <Link href="/" className="flex justify-center items-center gap-1 md:gap-2 mr-2">
+              USD <IoIosArrowDown />
+            </Link>
+
+            <ClerkLoaded>
+              {user ? (
+                <UserButton />
+              ) : (
+                <SignInButton mode="modal">
+                  <div className="flex justify-center items-center gap-1 md:gap-2 mr-4 hoverEffect">
+                    <p>Login</p>
+                    <User size={17} />
+                  </div>
+                </SignInButton>
+              )}
+              <Link
+                href="/shop_list"
+                className="flex justify-center items-center gap-1 md:gap-2 hoverEffect"
+              >
+                Wishlist <FaRegHeart size={15} />
+              </Link>
+            </ClerkLoaded>
+
+           
+            
+
+            <Link href="/shopping_cart">
+              <CartIcon />
+            </Link>
           </div>
         </div>
       </div>
     </header>
   );
 }
-

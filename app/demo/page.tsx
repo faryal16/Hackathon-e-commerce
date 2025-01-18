@@ -1,17 +1,17 @@
 import React from 'react'
-
-const demo = () => {
+import Image from 'next/image'
+import Title from '@/components/Title'
+const Demo = () => {
   return (
-    <main className="w-full bg-[#F6F5FF]" >
-  
-    <div className='wrapper px-12 flex flex-col justify-center items-start h-[286px] bg-[#F6F5FF]'>
-       <div className=" w-[314px] h-[64px]">
-         <h1 className="text-[#0D0E43] text-2xl md:text-[36px] mb-8 font-bold">Hekto Demo</h1>
-         </div>
-         </div>
-         </main>
-      
+    <main className='w-full bg-[#F6F5FF]'>
+         <Title title={'Demo'} tag={'Demo'} />
+        <div className='wrapper px-12 flex flex-col justify-center items-start h-[286px] bg-[#F6F5FF]'>
+        <div className="md:w-[904px] flex justify-center items-center mb-20 w-auto md:h-[93px] h-auto">
+      <Image src="/images/4.png" alt='logo' width={500} height={300} />
+    </div>
+        </div>
+    </main>
   )
 }
 
-export default demo
+export default Demo

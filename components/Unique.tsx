@@ -1,17 +1,30 @@
+import { sanityFetch } from '@/sanity/lib/fetch';
+import { urlFor } from '@/sanity/lib/image';
+import { Unique } from '@/sanity/lib/quires';
+
 import Image from 'next/image';
 
 
-export default function UniqueProduct() {
-    
+type Products = {
+    _id: string;
+    name: string;
+    description: string;
+    price: number;
+    discountPercentage: number;
+    imageUrl: string[];
+  };
+export default async function UniqueProduct() {
+const products : Products[] = await sanityFetch({query: Unique})
 
+const product = products[0];
     return (
         <div className="my-[50px] bg-[#F1F0FF] px-4 py-8 flex flex-col justify-center items-center md:flex-row">
-            <div className="flex-1">
-                <Image src="/images/1.png" width={500} height={300} alt="B&B Italian Sofa" className="w-full h-auto object-cover" />
+ <div className="flex-1">
+                <Image src={urlFor(product.imageUrl).url()} alt={product.name} width={500} height={300}  className="w-full h-auto object-cover" />
             </div>
             <div className="flex-1 px-4 space-y-20  ">
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl leading-loose font-semibold text-[#0D0E43] mb-4">Unique Features Of leatest &
-                Trending Poducts</h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-5xl leading-loose font-semibold text-[#0D0E43] mb-4">
+                    {product.name}</h1>
               
                 <ul className="  text-[#ACABC3] list-inside space-y-5 md:text-lg text-sm sm:text-base mb-4">
                     <li className='flex  gap-4 items-center' ><svg
@@ -47,7 +60,7 @@ export default function UniqueProduct() {
 
                 <button  className="bg-[#FB2E86]  text-white font-bold py-4 px-10 rounded-sm">
                     Add To Cart
-                </button>  <p className="text-base font-semibold text-[#0D0E43] ">B&B Italian Sofa  <br/>$32.00</p>
+                </button>  <p className="text-base font-semibold text-[#0D0E43] ">B&B Italian Sofa  <br/>${product.price}</p>
                 </div>
             </div>
         </div>

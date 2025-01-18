@@ -7,8 +7,10 @@ import { FaArrowUp } from "react-icons/fa";
 
 function Footer() {
   return (
-    <main className=" w-full bg-[#F2F0FF] ">    <div className=" wrapper py-20  flex justify-center flex-col text-lg bg-[#F2F0FF] text-[#ACABC3] ">
+    <footer className=" w-full bg-[#F2F0FF] ">   
+     <div className=" wrapper py-20  flex justify-center flex-col text-lg bg-[#F2F0FF] text-[#ACABC3] ">
       <div>
+
         <ul className="flex flex-col md:flex-row justify-center items-center sm:items-start gap-12 sm:gap-20  p-4 ">
           {/* Logo and Description */}
           <li className="text-center sm:text-left">
@@ -126,10 +128,10 @@ function Footer() {
           <FaFacebookF className="h-[20px] bg-[#0D0E43] rounded-full w-[20px] p-1 text-white " />
           <FaTwitter className="h-[20px] bg-[#0D0E43] rounded-full w-[20px] p-1 text-white " />
           <FaLinkedin className="h-[20px] bg-[#0D0E43] rounded-full mr-12 w-[20px] p-1 text-white " />
-          <Link href="/"><FaArrowUp className="size-10 cursor-pointer text-[#0D0E43] " /></Link>
+          <Link href="#"><FaArrowUp className="size-10 cursor-pointer text-[#0D0E43] " /></Link>
         </div>
       </div>
-      </main>
+      </footer>
   );
 }
 

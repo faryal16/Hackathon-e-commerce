@@ -1,21 +1,39 @@
-import Acceory from '@/components/Acceory'
-import Title from '@/components/Title'
-import React from 'react'
-import Image from 'next/image'
-import ProductCard from "@/components/ProductCard"
+import ProductCard from '@/components/ProductCard';
+import { sanityFetch } from '@/sanity/lib/fetch';
+import { urlFor } from '@/sanity/lib/image';
+import { allProducts } from '@/sanity/lib/quires';
 
-const page = () => {
+
+type Product = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  discountPercentage?: number;
+  imageUrl?: string;
+};
+
+export default async function Page() {
+  // Fetch products from Sanity
+  const products: Product[] = await sanityFetch({ query: allProducts });
+
   return (
-    <div> <Title title={'Shop Grid Default'} tag={'Shop Grid Default'} />
-    <Acceory/>
-    <div className="mb-20">
-      <ProductCard/>
+    <div className="wrapper flex items-center justify-center py-10">
+      <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map((product) => (
+          <ProductCard
+            key={product._id}
+            name={product.name}
+            sale={
+              product.discountPercentage
+                ? (product.price * (1 - product.discountPercentage / 100)).toFixed(2)
+                : undefined
+            }
+            price={product.price.toFixed(2)}
+            imgSrc={product.imageUrl ? urlFor(product.imageUrl).url() : '/placeholder-image.png'}
+          />
+        ))}
+      </div>
     </div>
-    <div className="wrapper md:w-[904px] flex justify-center items-center mb-20 w-auto md:h-[93px] h-auto">
-      <Image src="/images/4.png" alt='logo' width={500} height={300} />
-    </div>
-    </div>
-  )
+  );
 }
-
-export default page

@@ -3,6 +3,7 @@ import Blog from "@/components/Blog";
 import Category from "@/components/Category";
 import Discount from "@/components/Discount";
 import Featured from "@/components/Featured";
+
 import HeroSection from "@/components/HeroSection";
 import Items from "@/components/Items";
 import Latested from "@/components/Latested";
