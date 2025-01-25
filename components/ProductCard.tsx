@@ -1,58 +1,75 @@
-// ProductCard.tsx (Client Component)
-'use client';
+import { Product } from "@/sanity.types";
+import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
+import React from "react";
+import { LuStar } from "react-icons/lu";
+import ProductCartBar from "./ProductCartBar";
+import PriceView from "./PriceView";
+import Link from "next/link";
+import AddToCartButton from "./AddToCartButton";
 
-import Image from 'next/image';
-import { FaRegHeart, FaSearchPlus } from 'react-icons/fa';
-import { LuShoppingCart } from 'react-icons/lu';
-
-const ProductCard = ({
-  name,
-  sale,
-  price,
-  imgSrc,
-}: {
-  name: string;
-  sale?: string;
-  price: string;
-  imgSrc: string;
-}) => {
+const ProductCard = ({ product }: { product: Product }) => {
+  console.log(product)
   return (
-    <div className="group w-full shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-      {/* Image Container */}
-      <div className="relative flex justify-center items-center w-full h-[270px] bg-gray-100">
-        <Image
-          src={imgSrc}
-          alt={name}
-          width={150}
-          height={150}
-          objectFit="cover"
-          className="transition-transform duration-300 group-hover:scale-105"
-        />
-        {/* Hover Icons */}
-        <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity flex items-start flex-col justify-end gap-4">
-          <button className="p-2 ml-2 bg-white rounded-full text-gray-700 hover:bg-gray-200">
-            <FaRegHeart />
-          </button>
-          <button className="p-2 ml-2 bg-white rounded-full text-gray-700 hover:bg-gray-200">
-            <FaSearchPlus />
-          </button>
-          <button className="p-2 ml-2 mb-2 bg-white rounded-full text-gray-700 hover:bg-gray-200">
-            <LuShoppingCart />
-          </button>
-        </div>
+    <div className="border border-gray-300 rounded-lg overflow-hidden group text-sm">
+      <div className="border-b border-b-gray-300  overflow-hidden relative">
+        {product?.image && (
+          <Link href={`/product/${product.slug?.current }`}>
+            <Image
+              src={urlFor(product.image).url()}
+              alt="productImage"
+              width={500}
+              height={500}
+              loading="lazy"
+              className={`w-full max-h-96 object-cover overflow-hidden  transition-transform duration-500 ${product?.stock !== 0 && "group-hover:scale-105"}`}
+            />
+          </Link>
+        )}
+        {product?.stock === 0 && (
+          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+            <p className="text-lg font-bold text-white">Out of Stock</p>
+          </div>
+        )}
+        {product?.status && (
+          <div className="absolute left-1 top-1 z-10 flex flex-col items-center space-y-1 text-gray-500 px-2 py-1 group-hover:opacity-0 transition-opacity duration-300">
+            {product.status.split("").map((char:any,index:any) => (
+              <span key={index} className="font-semibold uppercase">
+                {char}
+              </span>
+            ))}
+          </div>
+        )}
+        {product?.stock !== 0 && (
+          <div className="absolute bottom-0 left-0 w-full translate-y-12 group-hover:-translate-y-4 hoverEffect">
+            <ProductCartBar />
+          </div>
+        )}
       </div>
-      {/* Product Info */}
-      <div className="p-4 w-full space-y-2 text-center">
-        <h3 className="text-lg font-semibold text-[#0D0E43]">{name}</h3>
-        <div className="flex justify-center m-2 items-center gap-1">
-          <div className="w-2 h-2 rounded-full bg-[#DE9034]"></div>
-          <div className="w-2 h-2 rounded-full bg-[#EC42A2]"></div>
-          <div className="w-2 h-2 rounded-full bg-[#8568FF]"></div>
+      <div className="p-5 flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <p className="text-gray-500 font-medium">{product?.category}</p>
+          <div className="text-sky-400 flex items-center gap-1">
+            {Array.from({ length: 5 }).map((_, index) => {
+              const isLastStar = index === 4;
+              return (
+                <LuStar
+                  fill={!isLastStar ? "#fca99b" : "transparent"}
+                  key={index}
+                  className={`${isLastStar ? "text-gray-500" : "text-orange-200"}`}
+                />
+              );
+            })}
+          </div>
         </div>
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-gray-500">${sale}</p>
-          <p className="text-[#FB2E86]">${price}</p>
-        </div>
+        <p className="text-base text-gray-600 tracking-wide font-semibold line-clamp-1 capitalize">
+          {product?.name}
+        </p>
+        <PriceView
+          price={product?.price}
+          discount={product?.discount}
+        
+        />
+        <AddToCartButton product={product} />
       </div>
     </div>
   );

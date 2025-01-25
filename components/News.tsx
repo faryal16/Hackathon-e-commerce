@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const News = () => {
   return (
@@ -20,7 +21,7 @@ const News = () => {
 
           </h1>
           <button className="bg-[#FB2E86] mt-20 text-white px-12 py-3 rounded-sm text-[14px] md:text-[16px] hover:bg-[#e12575] transition">
-          Shop Now
+          <Link href="/grid_default" >Shop Now</Link>
         </button>
         </div>
       </div>

@@ -37,6 +37,33 @@ const topBlogs = [
     para:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit facilisis quis auctor pretium ipsum, eu rutrum. Condimentum eumalesuada vitae ultrices in in neque, porta dignissim Adipiscing purus, cursus vulputate id id dictum at.",
   },
+  {
+    id: "4",
+    img: "/blog/1.png",
+    author: "SaberAli",
+    date: "21 August, 2020",
+    title: "Top essential Trends in 2021",
+    para:
+      "More off this less hello samlande lied much over tightly circa horse taped mightly.",
+  },
+  {
+    id: "5",
+    img: "/blog/2.png",
+    author: "SaberAli",
+    date: "21 August, 2020",
+    title: "The Future of Technology in 2022",
+    para:
+      "More off this less hello samlande lied much over tightly circa horse taped mightly.",
+  },
+  {
+    id: "6",
+    img: "/blog/3.png",
+    author: "SaberAli",
+    date: "21 August, 2020",
+    title: "5 Tips for Remote Work Productivity",
+    para:
+      "More off this less hello samlande lied much over tightly circa horse taped mightly.",
+  }
 ];
 
 // Generate static params for dynamic route
@@ -63,6 +90,7 @@ const BlogPage = ({ params }: { params: { slug: string } }) => {
           alt={blog.title}
           width={800}
           height={500}
+          style={{ objectFit: 'cover' }}
           className="w-full h-auto object-cover"
         />
         <div className="p-6">

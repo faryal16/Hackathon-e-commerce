@@ -24,11 +24,11 @@ const Title = ({ title , tag} : {title: string, tag:string}) => {
     </BreadcrumbItem>
     
     <BreadcrumbItem>
-      <BreadcrumbLink href="/components" className='hover:text-[#FB2E86]  flex justify-center items-end'>  <LuDot />Pages</BreadcrumbLink>
+      <BreadcrumbLink href="#" className='hover:text-[#FB2E86]  flex justify-center items-end'>  <LuDot />Pages</BreadcrumbLink>
     </BreadcrumbItem>
     
     <BreadcrumbItem>
-      <BreadcrumbLink href="/grid_default" className='text-[#FB2E86] flex justify-center items-end '> <LuDot />{tag}</BreadcrumbLink>
+      <BreadcrumbLink href="#" className='text-[#FB2E86] flex justify-center items-end '> <LuDot />{tag}</BreadcrumbLink>
     </BreadcrumbItem>
   </BreadcrumbList>
 </Breadcrumb>

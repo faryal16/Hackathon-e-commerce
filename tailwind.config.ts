@@ -49,8 +49,18 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
   		},
+		  animation: {
+			marquee: "marquee 15s  linear infinite",
+		  },
+		  keyframes: {
+			marquee: {
+			  "0%": { transform: "translateX(0)" },
+			  "100%": { transform: "translateX(-50%)" },
+			},
+		  },
+
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -58,6 +68,17 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    function ({ addUtilities }:any) {
+      addUtilities(
+        {
+          ".paused": {
+            "animation-play-state": "paused",
+          },
+        },
+        ["hover"] // Enable on hover
+      );
+    },
+  ],
 };
 export default config;

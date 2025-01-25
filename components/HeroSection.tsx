@@ -1,53 +1,85 @@
 
 
-import { sanityFetch } from '@/sanity/lib/fetch';
+import { SALE_QUERYResult } from '@/sanity.types';
+
 import { urlFor } from '@/sanity/lib/image';
-import { Hero } from '@/sanity/lib/quires';
+
 import Image from 'next/image';
 import Link from 'next/link';
-type Products = {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  imageUrl: string[];
-};
-export default async function HeroSection() {
-  const products : Products[] = await sanityFetch({query: Hero})
-  
-  const product = products[0];
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Card, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
+
+
+export default async function HeroSection({sales}:{sales:SALE_QUERYResult}) {
+ 
   return (
-    <section className="relative w-full md:h-[90%] h-full flex md:flex-row flex-col  items-center justify-center bg-[#F2F0FF]">
+    < div className=" w-full  my-10 bg-[#F2F0FF]">
       {/* Background image on the left top */}
 
       {/* Foreground content */}
-      <div className="z-10 flex flex-col md:flex-row  w-full md:w-[644px] h-full md:h-[248px] ml-0 md:ml-[250px] justify-between items-center px-4">
-      <div className="absolute top-0 sm:left-0 left-24 md:w-96 md:h-96 w-60 h-60 lg:w-[384px]  lg:h-[384px]">
-        <Image src="/images/home2.png" fill objectFit="cover" alt="Background" />
-      </div>
+      <Carousel className=" wrapper  ">
+      <div className="absolute  w-[250px]  h-[270px]">
+        <Image src="/images/home2.png" fill  alt="Background" />
+        </div>
         {/* Text content in the middle */}
-        <div className="text-left space-y-8 md:ml-4  mb-32 flex-1">
-          <p className="text-sm md:text-lg font-bold text-[#FB2E86] mt-2">
+        <CarouselContent className="   ">
+          {sales?.map((sale)=> (
+            <CarouselItem key={sale?._id}>
+              <Card>
+                <CardContent className='p-0'>
+<div className="flex flex-col  ml-48 md:flex-row items-center">
+  <div className="flex-1 flex flex-col gap-4  p-6 md:px-12">
+<Badge variant="secondary" className=' text-2xl space-x-2 text-pink-500 capitalize'>
+  {sale?.badge} {sale?.discountAmount}% off
+</Badge>
+            <p className="text-lg md:text-3xl tracking-wider font-bold text-[#a9248e]">
+              {sale?.title}
+              </p>
+  <p className="text-sm md:text-lg font-bold text-[#FB2E86]">
             Best Furniture For Your Castle
           </p>
-          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-black">
-{product.name}
+          <h1 className="text-xl md:text-3xl tracking-tight lg:text-5xl font-semibold text-black">
+       {sale?.name}
           </h1>
-          <p className="text-xs md:text-sm lg:text-base text-black mt-4 mx-auto">
-          {product.description}
+          <p className="text-muted-foreground md:text-sm lg:text-base text-black mt-4 mx-auto">
+          {sale?.description}
           </p>
-          {/* Button */}
-          <Link href="/shop" className="mt-6 inline-block text-white bg-[#FB2E86] rounded-lg px-6 py-3 shadow-lg hover:bg-gray-200 transition-colors">
+          <p className="">
+            Use Code: <span
+            className='font-semibold text-primary uppercase' >{sale?.couponCode} </span>
+             for{" "}
+             <span className='font-semibold'>{sale?.discountAmount}%</span> OFF
+          </p>
+        
+          <Link href="/shop" className="w-40 text-white bg-[#FB2E86] rounded-[12px] px-6 py-3 text-center text-lg shadow-lg hover:bg-pink-700 transition-colors">
             Shop Now
-          </Link>
-        </div>
-      </div>
+            </Link>
+  </div>
 
-      {/* Right image */}
-      <div className="md:w-3/4 w-1/2 h-1/2 md:h-auto   mt-0">
-        <Image src={urlFor(product.imageUrl).url()} alt={product.name} layout="responsive" width={706} height={689}/>
-      </div>
-    </section>
+  {sale?.image && <div>
+    <Image src={urlFor(sale?.image).url()} alt="banner image" width={500} height={500}
+    objectFit='cover' className=' transition-transform duration-300 hover:scale-105 hoverEffect' />
+    </div>}
+</div>
+                </CardContent>
+                </Card>
+            </CarouselItem>
+          ))}
+         </CarouselContent>
+         <CarouselPrevious className='absolute left-2'/>
+         <CarouselNext className='absolute right-2'/>
+         
+      </Carousel>
+
+      
+    </ div>
   );
 }

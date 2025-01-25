@@ -1,26 +1,25 @@
-
-
-import { sanityFetch } from '@/sanity/lib/fetch';
-import {  sixPro } from '@/sanity/lib/quires';
-import Image from 'next/image';
-import Link from 'next/link';
+import { sanityFetch } from "@/sanity/lib/live";
+import {  sixPro } from "@/sanity/lib/quires";
+import { Product } from "@/sanity.types";
+import Image from "next/image";
+import Link from "next/link";
+import { LuStar } from "react-icons/lu";
+import PriceView from "./PriceView";
+import AddToCartButton from "./AddToCartButton";
 import { urlFor } from "@/sanity/lib/image";
+import ProductCartBar from "./ProductCartBar";
 
-import { FaRegHeart, FaSearchPlus } from "react-icons/fa";
-import { LuShoppingCart } from 'react-icons/lu';
-
-type Products={
-  _id:string,
-  name:string,
-description:string,
-  price:number,
-  discountPercentage:number,
-  imageUrl:string
+// This is a Server Component that does not use any client-side hooks
+export default async function FeaturedPage() {
+  const result = await sanityFetch({ query: sixPro });
   
-}
-export default async function GallerySection() {
-   
-const products : Products[] = await sanityFetch({query: sixPro})
+  // Assuming Featured returns an array of objects, type cast the response properly
+  const products = (Array.isArray(result?.data) ? result.data : []) as Product[];
+
+  if (products.length === 0) {
+    return <div>No featured products available</div>;
+  }
+
 
   return (
     <div className="wrapper flex justify-center items-center flex-col mx-auto px-4 py-8">
@@ -30,54 +29,76 @@ const products : Products[] = await sanityFetch({query: sixPro})
 
       {/* Links */}
       <div className="flex justify-center mb-20 space-x-4 md:space-x-12">
-        <Link href="/new-arrivals" className="text-base md:text-lg text-[#0D0E43] hover:text-[#FB2E86] hover:underline font-semibold">New Arrival</Link>
-        <Link href="/best-sellers" className="text-base md:text-lg text-[#0D0E43]
+        <Link href="/" className="text-base md:text-lg text-[#0D0E43] hover:text-[#FB2E86] hover:underline font-semibold">New Arrival</Link>
+        <Link href="/grid_default" className="text-base md:text-lg text-[#0D0E43]
         hover:text-[#FB2E86] hover:underline font-semibold">Best Seller</Link>
         <Link href="/featured" className="text-base md:text-lg text-[#0D0E43]
         hover:text-[#FB2E86] hover:underline font-semibold">Featured</Link>
-        <Link href="/special-offers" className="text-base md:text-lg text-[#0D0E43]
+        <Link href="/offers" className="text-base md:text-lg text-[#0D0E43]
         hover:text-[#FB2E86] hover:underline  font-semibold">Special Offer</Link>
       </div>
       {/* Image Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8   mt-8 mb-6">
-
-{
-  products.map( ( index , item) => {
-   
-
-    return (
-      <div key={item} className="group w-full   shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-        <div className="w-[320px] relative group-hover:bg-[#fcfbfb]  bg-[#F7F7F7] h-[300px] flex justify-center items-center">
-          
-        <Image src={urlFor(index.imageUrl).url()} alt={index.name} width={280} height={300} className='bject-cover p-4 w-full h-full'/>
-         <div className="absolute inset-0  bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity flex items-start flex-col justify-end gap-4">
-
-                  <button className="p-2 ml-2   bg-white rounded-full text-gray-700 hover:bg-gray-200">
-                   <FaRegHeart/>
-                  </button>
-                  <button className="p-2 ml-2  bg-white rounded-full text-gray-700 hover:bg-gray-200">
-                   <FaSearchPlus/>
-                  </button>
-                  <button className="p-2 ml-2 mb-4 bg-white rounded-full text-gray-700 hover:bg-gray-200">
-                   <LuShoppingCart/>
-                  </button>
-                </div>
-
-        </div>
-        <div className="flex flex-col mt-4 gap-12 items-center justify-start">
-          <h3 className="text-[#151875] font-medium text-xl ml-2 ">{index.name}</h3>
-          <p className="text-[#151875] ml-1 ">${index.price}<span className="text-[#FB2448] ml-3">${index.discountPercentage}%</span></p>
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3  gap-6">
+        {products.map((product) => (
+          <div key={product._id} className="border border-gray-300 rounded-lg overflow-hidden group text-sm">
+            <div className="border-b border-b-gray-300  overflow-hidden relative">
+        {product?.image && (
+          <Link href={`/product/${product.slug?.current }`}>
+            <Image
+              src={urlFor(product.image).url()}
+              alt="productImage"
+              width={500}
+              height={500}
+              loading="lazy"
+              className={`w-full max-h-96 object-cover overflow-hidden  transition-transform duration-500 ${product?.stock !== 0 && "group-hover:scale-105"}`}
+            />
+          </Link>
+        )}
+        {product?.stock === 0 && (
+          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+            <p className="text-lg font-bold text-white">Out of Stock</p>
+          </div>
+        )}
+        {product?.status && (
+          <div className="absolute left-1 top-1 z-10 flex flex-col items-center space-y-1 text-gray-500 px-2 py-1 group-hover:opacity-0 transition-opacity duration-300">
+            {product.status.split("").map((char:any,index:any) => (
+              <span key={index} className="font-semibold uppercase">
+                {char}
+              </span>
+            ))}
+          </div>
+        )}
+        {product?.stock !== 0 && (
+          <div className="absolute bottom-0 left-0 w-full translate-y-12 group-hover:-translate-y-4 hoverEffect">
+            <ProductCartBar />
+          </div>
+        )}
       </div>
-    )
-  })
-}
-
-
-
-
-
-
-     </div>    </div>
+            <div className="p-5 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <p className="text-gray-500 font-medium">{product?.category || "Uncategorized"}</p>
+                <div className="text-lightText flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, index) => {
+                    const isLastStar = index === 4;
+                    return (
+                      <LuStar
+                        fill={!isLastStar ? "#fca99b" : "transparent"}
+                        key={index}
+                        className={`${isLastStar ? "text-gray-500" : "text-orange-200"}`}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+              <p className="text-base text-gray-600 tracking-wide font-semibold line-clamp-1 capitalize">
+                {product?.name || "Product Name Not Available"}
+              </p>
+              <PriceView price={product?.price} discount={product?.discount || 0} />
+              <AddToCartButton product={product} />
+            </div>
+          </div>
+        ))}
+      </div> 
+        </div>
   );
 }

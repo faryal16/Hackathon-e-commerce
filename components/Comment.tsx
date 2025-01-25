@@ -1,22 +1,30 @@
-"use client"
+"use client";
 import React, { useState } from "react";
+
 // Define an interface for the comment structure
 interface Comment {
-    name: string;
-    content: string;
-  }
-  
-  const CommentSection = () => {
-      const [comments, setComments] = useState<Comment[]>([]); // Changed from string[] to Comment[]
-  const [name, setName] = useState(""); // Stores name
-  const [newComment, setNewComment] = useState(""); // Stores comment text
+  name: string;
+  content: string;
+}
 
-  const handleAddComment = (e: { preventDefault: () => void; }) => {
+const CommentSection: React.FC = () => {
+  const [comments, setComments] = useState<Comment[]>([]); // Stores list of comments
+  const [name, setName] = useState<string>(""); // Stores user's name
+  const [newComment, setNewComment] = useState<string>(""); // Stores user's comment text
+
+  const handleAddComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (name.trim() === "" || newComment.trim() === "") return;
 
-    // Add new comment with name
-    setComments([...comments, { name, content: newComment }]);
+    // Ensure both fields are filled before adding a comment
+    if (!name.trim() || !newComment.trim()) return;
+
+    // Add new comment
+    setComments((prevComments) => [
+      ...prevComments,
+      { name: name.trim(), content: newComment.trim() },
+    ]);
+
+    // Clear input fields
     setName("");
     setNewComment("");
   };
@@ -27,26 +35,32 @@ interface Comment {
         Comment Section
       </h2>
 
-      {/* Display Added Comments */}
+      {/* Display Existing Comments */}
       <div className="space-y-4 mb-6">
-        {comments.map((comment, index) => (
-          <div
-            key={index}
-            className="p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
-          >
-            <h3 className="font-bold text-start mb-2 text-gray-900 dark:text-gray-100">
-              {comment.name}
-            </h3>
-            <p className="text-gray-700 text-start dark:text-gray-300">{comment.content}</p>
-          </div>
-        ))}
+        {comments.length > 0 ? (
+          comments.map((comment, index) => (
+            <div
+              key={index}
+              className="p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
+            >
+              <h3 className="font-bold text-start mb-2 text-gray-900 dark:text-gray-100">
+                {comment.name}
+              </h3>
+              <p className="text-gray-700 text-start dark:text-gray-300">
+                {comment.content}
+              </p>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500 dark:text-gray-400 text-center">
+            No comments yet. Be the first to comment!
+          </p>
+        )}
       </div>
 
       {/* Add Comment Form */}
-      <form
-        onSubmit={handleAddComment}
-        className="flex flex-col space-y-4"
-      >
+      <form onSubmit={handleAddComment} className="flex flex-col space-y-4">
+        {/* Name Input */}
         <input
           type="text"
           placeholder="Enter your name"
@@ -54,18 +68,22 @@ interface Comment {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input
-          type="text"
+
+        {/* Comment Input */}
+        <textarea
           placeholder="Write a comment..."
           className="p-2 border rounded-lg dark:bg-gray-600 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-400"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-        />
+          rows={3}
+        ></textarea>
+
+        {/* Submit Button */}
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg"
         >
-          Comment
+          Add Comment
         </button>
       </form>
     </div>

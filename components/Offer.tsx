@@ -10,7 +10,7 @@ export default function StaticOffers() {
       </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Offer Card */}
-                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto">
+                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto  transition-transform transform hover:scale-105 hover:border hover:border-black">
                     <div className="relative mb-4">
                         <Image src="/offer/1.png" width={65} height={65} alt="Special Offer 1" />
                     </div>
@@ -23,7 +23,7 @@ export default function StaticOffers() {
                 </div>
 
                 {/* Repeatable Cards */}
-                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto">
+                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto transition-transform transform hover:scale-105 hover:border hover:border-black">
                     <div className="relative mb-4">
                         <Image src="/offer/2.png" width={65} height={65} alt="Special Offer 2" />
                     </div>
@@ -35,7 +35,7 @@ export default function StaticOffers() {
                     </p>
                 </div>
 
-                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto">
+                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto transition-transform transform hover:scale-105 hover:border hover:border-black">
                     <div className="relative mb-4">
                         <Image src="/offer/3.png" width={65} height={65} alt="Special Offer 3" />
                     </div>
@@ -47,7 +47,7 @@ export default function StaticOffers() {
                     </p>
                 </div>
 
-                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto">
+                <div className="flex w-full max-w-[270px] flex-col justify-center text-center space-y-4 items-center p-6 border border-gray-200 rounded-lg shadow-lg mx-auto transition-transform transform hover:scale-105 hover:border hover:border-black">
                     <div className="relative mb-4">
                         <Image src="/offer/4.png" width={65} height={65} alt="Special Offer 4" />
                     </div>

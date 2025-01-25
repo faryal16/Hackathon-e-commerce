@@ -1,6 +1,8 @@
-"use client"
+
 import Blog from "@/components/Blog";
-import Category from "@/components/Category";
+// import Categories from "@/components/Categories";
+import { Category } from "@/components/Category";
+
 import Discount from "@/components/Discount";
 import Featured from "@/components/Featured";
 
@@ -9,22 +11,31 @@ import Items from "@/components/Items";
 import Latested from "@/components/Latested";
 import News from "@/components/News";
 import Offer from "@/components/Offer";
+
 import Trending from "@/components/Trending";
 import Unique from "@/components/Unique";
+import {  getAllCategories,  getSale } from "@/sanity/helpers";
 
 
-export default function Home() {
+
+export default async function Home() {
+  const sales = await getSale()
+  
+  const categories = await getAllCategories()
+
+
   return (
     <main className="overflow-hidden">
-      <HeroSection/>
-      <Featured/>
-      <Latested />
-      <Offer/>
-      <Unique/>
-      <Trending/>
-      <Items/>
-      <Discount/>
-      <Category/>
+      <HeroSection sales={sales} />
+      {/* <Categories categories={categories}/> */}
+       <Featured />
+    <Latested />
+    <Offer/>
+        <Unique/>
+     <Trending/>
+        <Items/>
+    <Discount/>
+        <Category/>
       <News/>
       <Blog/>
      
