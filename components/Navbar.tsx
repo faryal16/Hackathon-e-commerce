@@ -5,13 +5,13 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-4">
       <nav className="wrapper  h-[60px]  text-[#0D0E43] ">
         <div className=" px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link href="/demo" className="text-2xl md:text-4xl font-bold">
+              <Link href="/" className="text-2xl md:text-4xl font-bold">
                 Hekto
               </Link>
             </div>
@@ -34,7 +34,7 @@ export default function Navbar() {
 
               <Link
                 href="/product"
-                className="flex justify-center items-end gap-1 hover:text-[#FB2E86]"
+                className="flex justify-center hover:underline items-end gap-1 hover:text-[#FB2E86]"
               >
                 {" "}
                 Products
@@ -94,7 +94,7 @@ export default function Navbar() {
                   <SheetContent className="items-center bg-gray-800 text-white justify-center flex flex-col gap-10">
                     {/* Logo */}
                     <div className="flex-shrink-0">
-                      <Link href="/demo" className="text-4xl  font-bold">
+                      <Link href="/" className="text-4xl  font-bold">
                         Hekto
                       </Link>
                     </div>
@@ -114,7 +114,7 @@ export default function Navbar() {
                       </Link>
                       <Link
                         href="/product"
-                        className="flex justify-center items-end gap-1 hover:text-[#FB2E86]"
+                        className="flex justify-center hover:underline items-end gap-1 hover:text-[#FB2E86]"
                       >
                         {" "}
                         Products
