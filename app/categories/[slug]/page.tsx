@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import ProductList from "@/components/ProductList";
 import Title from "@/components/Title";
-import { getAllCategories, getProductsByCategory } from "@/sanity/helpers";
+import { getAllCategories } from "@/sanity/helpers";
 import { client } from "@/sanity/lib/client";
 import React from "react";
 interface Props {

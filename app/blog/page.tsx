@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { BsVectorPen } from "react-icons/bs";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import Link from "next/link";

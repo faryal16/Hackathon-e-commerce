@@ -1,6 +1,6 @@
 import { Product } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import { LuStar } from "react-icons/lu";
 import ProductCartBar from "./ProductCartBar";

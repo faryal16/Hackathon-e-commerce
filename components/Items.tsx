@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { urlFor } from '@/sanity/lib/image';
 import { sanityFetch } from '@/sanity/lib/live';
@@ -82,7 +82,7 @@ const Items = async () => {
 
           {/* Third Column */}
           <div className="flex flex-col gap-6">
-            {[firstProduct, secondProduct, thirdProduct].map((products, index) =>
+            {[firstProduct, secondProduct, thirdProduct].map((products) =>
               products.map((product) => (
                 <div className="flex items-center  gap-4" key={product._id}>
                   {/* Product Image */}

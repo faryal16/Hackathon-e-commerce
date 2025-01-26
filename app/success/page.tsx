@@ -1,13 +1,13 @@
 "use client";
 
 import useCartStore from "@/store";
-import { Check, Home, Package, ShoppingBag } from "lucide-react";
+import { Check,  Package, ShoppingBag } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Title from "@/components/Title";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const SuccessPage = () => {
   const searchParams = useSearchParams();

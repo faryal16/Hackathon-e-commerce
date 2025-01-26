@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Title from "@/components/Title";
 import React from "react";
 
@@ -33,8 +33,15 @@ const Contact = () => {
       } else {
         throw new Error('Failed to send message. Please try again.');
       }
-    } catch (error: any) {
-      setFeedback({ type: 'error', message: error.message || 'Something went wrong.' });
+    }catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error.message);  // Handle error as an instance of Error
+      } else {
+        console.error("An unknown error occurred");
+      }
+    //  catch (error) {
+    //   setFeedback({ type: 'error', message: error.message || 'Something went wrong.' });
+    // }
     }
   };
 

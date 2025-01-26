@@ -4,7 +4,7 @@ import { SALE_QUERYResult } from '@/sanity.types';
 
 import { urlFor } from '@/sanity/lib/image';
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 
 import {
@@ -21,13 +21,13 @@ import { Badge } from './ui/badge';
 export default async function HeroSection({sales}:{sales:SALE_QUERYResult}) {
  
   return (
-    < div className=" w-full  my-10 bg-[#F2F0FF]">
+    < div className=" w-full  mb-10 bg-[#F2F0FF]">
       {/* Background image on the left top */}
 
       {/* Foreground content */}
       <Carousel className=" wrapper  ">
       <div className="absolute  w-[250px]  h-[270px]">
-        <Image src="/images/home2.png" fill  alt="Background" />
+        <Image src="/images/home2.png"  width={270} height={270}  alt="Background" />
         </div>
         {/* Text content in the middle */}
         <CarouselContent className="   ">
@@ -59,7 +59,7 @@ export default async function HeroSection({sales}:{sales:SALE_QUERYResult}) {
              <span className='font-semibold'>{sale?.discountAmount}%</span> OFF
           </p>
         
-          <Link href="/shop" className="w-40 text-white bg-[#FB2E86] rounded-[12px] px-6 py-3 text-center text-lg shadow-lg hover:bg-pink-700 transition-colors">
+          <Link href="/product" className="w-40 text-white bg-[#FB2E86] rounded-[12px] px-6 py-3 text-center text-lg shadow-lg hover:bg-pink-700 transition-colors">
             Shop Now
             </Link>
   </div>

@@ -8,8 +8,8 @@ import { urlFor } from "@/sanity/lib/image";
 import useCartStore from "@/store";
 import { useAuth, useUser } from "@clerk/nextjs";
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/legacy/image";
+
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import EmptyCart from "@/components/EmptyCart";

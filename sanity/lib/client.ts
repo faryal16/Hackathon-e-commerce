@@ -8,15 +8,18 @@ export const client = createClient({
   apiVersion,
   useCdn: true,
   token: process.env.SANITY_API_READ_TOKEN,             // This should work now // Set to false if statically generating pages, using ISR or tag-based revalidation
-  stega:{
-    studioUrl:process.env.NODE_ENV === "production" ? "https:yourdomin" : `${process.env.NEXT_PUBLIC_BASE_URL}/studio`
-  }
+  stega: {
+    studioUrl:
+      process.env.NODE_ENV === "production"
+        ? `https://${process.env.VERCEL_URL}/studio`
+        : `${process.env.NEXT_PUBLIC_BASE_URL}/studio`,
+  },
 })
 async function fixMissingSlugs() {
   const products = await client.fetch('*[_type == "product" && !defined(slug.current)]');
   console.log(`Found ${products.length} products with missing slugs.`);
 
-  const updates = products.map((product: { _id: any; _type: any; name: string; }) => ({
+  const updates = products.map((product: { _id: String; _type: string; name: string; }) => ({
     _id: product._id,
     _type: product._type,
     slug: {

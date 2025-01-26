@@ -1,7 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { Featured } from "@/sanity/lib/quires";
 import { Product } from "@/sanity.types";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { LuStar } from "react-icons/lu";
 import PriceView from "./PriceView";
@@ -48,7 +48,7 @@ export default async function FeaturedPage() {
         )}
         {product?.status && (
           <div className="absolute left-1 top-1 z-10 flex flex-col items-center space-y-1 text-gray-500 px-2 py-1 group-hover:opacity-0 transition-opacity duration-300">
-            {product.status.split("").map((char:any,index:any) => (
+            {product.status.split("").map((char:string,index:string|number) => (
               <span key={index} className="font-semibold uppercase">
                 {char}
               </span>

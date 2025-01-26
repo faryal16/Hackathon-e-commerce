@@ -1,3 +1,15 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": false }], // Avoid any by default
+    "react/react-in-jsx-scope": "off" // No need to import React in Next.js 12+
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off" // Optional: Disables enforcing return type annotations
+      }
+    }
+  ]
 }

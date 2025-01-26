@@ -2,7 +2,7 @@
 import ProductList from '@/components/ProductList';
 import Title from '@/components/Title';
 import {  getAllProducts } from '@/sanity/helpers';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 
 

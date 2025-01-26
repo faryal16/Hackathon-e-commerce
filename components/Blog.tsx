@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { BsVectorPen } from "react-icons/bs";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import Link from "next/link";
@@ -49,8 +49,10 @@ export default function BlogPage() {
                 <Image
                   src={blog.img}
                   alt={blog.title}
-                  layout="fill"
-                  style={{ objectFit: 'cover' }}
+                
+                  width={300}
+                  height={300}
+                
                 />
               </div>
               <div className="p-6">
@@ -82,7 +84,7 @@ export default function BlogPage() {
         </div>
 
         <Link href="/blog" >
-           <button className="w-40 mt-12 text-white bg-[#FB2E86] rounded-[12px] px-6 py-3  text-lg shadow-lg hover:bg-pink-700 transition-colors flex justify-center items-center"> 
+           <button className="w-40 mt-12 text-white bg-[#FB2E86] rounded-[12px] px-6 py-3  text-lg shadow-lg hover:bg-pink-700 transition-colors flex justify-center mx-auto items-center"> 
             Explore More
             </button>
             </Link>

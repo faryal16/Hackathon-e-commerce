@@ -4,8 +4,8 @@ import { urlFor } from "@/sanity/lib/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import Container from "@/components/Container";
 import PriceView from "@/components/PriceView";
-import Image from "next/image";
-import { notFound } from "next/navigation";
+import Image from "next/legacy/image";
+
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { FiShare2 } from "react-icons/fi";
 import { LuStar } from "react-icons/lu";
@@ -13,9 +13,9 @@ import { RxBorderSplit } from "react-icons/rx";
 import { TbTruckDelivery } from "react-icons/tb";
   // Client component for hover logic
 import Title from "@/components/Title";
-import { getAllCategories, getAllProducts } from "@/sanity/helpers";
+import {  getAllProducts } from "@/sanity/helpers";
 import ProductThumbnail from "@/components/ProductThumbnail";
-import ProductList from "@/components/ProductList";
+
 import ProductCard from "@/components/ProductCard";
 
 export interface ProductDetailsProps {
@@ -26,7 +26,7 @@ export interface ProductDetailsProps {
 
 const ProductPage = async ({ params }: ProductDetailsProps) => {
   const products = await getAllProducts();
-  const categories = await getAllCategories();
+  // const categories = await getAllCategories();
 
   const { slug } = await params;
 
@@ -48,7 +48,7 @@ const ProductPage = async ({ params }: ProductDetailsProps) => {
     return (
       <div className="text-center mt-10">
         <h1 className="text-2xl font-bold">Product Not Found</h1>
-        <p className="text-gray-600">We couldn't find the product you're looking for.</p>
+        <p className="text-gray-600">We couldn&#39;t find the product you&#39;re looking for.</p>
       </div>
     );
   }

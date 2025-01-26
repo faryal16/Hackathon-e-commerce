@@ -1,7 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import {  sixPro } from "@/sanity/lib/quires";
 import { Product } from "@/sanity.types";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { LuStar } from "react-icons/lu";
 import PriceView from "./PriceView";

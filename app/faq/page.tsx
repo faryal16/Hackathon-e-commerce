@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 const faq = () => {
   return (
     <main className='w-full bg-[#F6F5FF]'>

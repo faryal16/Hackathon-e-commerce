@@ -1,5 +1,5 @@
 import { ShoppingCart } from "lucide-react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import { motion } from "framer-motion";
 import emptyCart from "@/public/images/EmptyCart.png";

@@ -1,6 +1,6 @@
 import Acceory from '@/components/Acceory'
 import Title from '@/components/Title'
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Container from "@/components/Container";
 import OrdersComponent from "@/components/OrdersComponent";
 import { Button } from "@/components/ui/button";

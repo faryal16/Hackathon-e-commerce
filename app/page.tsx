@@ -14,14 +14,14 @@ import Offer from "@/components/Offer";
 
 import Trending from "@/components/Trending";
 import Unique from "@/components/Unique";
-import {  getAllCategories,  getSale } from "@/sanity/helpers";
+import {    getSale } from "@/sanity/helpers";
 
 
 
 export default async function Home() {
   const sales = await getSale()
   
-  const categories = await getAllCategories()
+  // const categories = await getAllCategories()
 
 
   return (

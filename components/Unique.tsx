@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { sanityFetch } from '@/sanity/lib/live';
 import { urlFor } from '@/sanity/lib/image';
 import { Unique } from '@/sanity/lib/quires';

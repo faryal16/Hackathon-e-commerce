@@ -2,11 +2,23 @@
 // for slug samll images
 "use client";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 
-const ProductThumbnail = ({ product }:any) => {
+interface Product {
+  image: {
+    asset: {
+      _ref: string;
+    };
+  };
+}
+
+interface ProductThumbnailProps {
+  product: Product;
+}
+
+const ProductThumbnail = ({ product }:ProductThumbnailProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (

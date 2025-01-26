@@ -1,5 +1,5 @@
 import loaderImage from "@/public/images/Loader.png";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Loader = () => {
   return (

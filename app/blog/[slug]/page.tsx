@@ -1,7 +1,7 @@
 // app/blog/[slug]/page.tsx
 
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Title from "@/components/Title";
 import { BsVectorPen } from "react-icons/bs";
 import { MdOutlineCalendarMonth } from "react-icons/md";

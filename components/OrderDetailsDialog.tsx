@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import PriceFormatter from "./PriceFormatter";
 import { MY_ORDERS_QUERYResult } from "@/sanity.types";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { urlFor } from "@/sanity/lib/image";
 
 interface OrderDetailsDialogProps {

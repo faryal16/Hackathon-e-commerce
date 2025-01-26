@@ -12,16 +12,16 @@ import { draftMode } from "next/headers";
 import DisableDraftMode from "@/components/DisableDraftMode";
 import { SanityLive } from "@/sanity/lib/live";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 const poppins = localFont({
   src: "./fonts/Poppins.woff2",
   variable: "--font-poppins",
