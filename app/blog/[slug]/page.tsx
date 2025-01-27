@@ -7,7 +7,8 @@ import { BsVectorPen } from "react-icons/bs";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { notFound } from "next/navigation"; // Helper to handle 404
 import Comment from "@/components/Comment";
-import { PageProps } from "@/.next/types/app/blog/[slug]/page";
+import { PageProps } from "@/.next/types/app/blog/page";
+
 // Static data for the blogs
 const topBlogs = [
   {
@@ -125,7 +126,7 @@ const BlogPage = ({ params }: BlogPageProps) => {
       <Comment/>
       </div>
        <div className="wrapper md:w-[904px] flex justify-center items-center mb-20 w-auto md:h-[93px] h-auto">
-            <Image src="/images/4.png" alt='logo' width={500} height={300} />
+            <Image src="/images/4.png" alt='logo' width={500} height={100} />
           </div>
     </div>
   );

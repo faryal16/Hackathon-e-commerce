@@ -44,7 +44,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     }
   };
   
-  return (<main className=' '>
+  return (
+  <main className=' '>
     <div><Title title={'My Account'} tag={'My Account'}/></div>
     <div className="wrapper mt-[120px] mb-[80px]
      flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-12 bg-white">
@@ -108,7 +109,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       </div>
     
     <div className="wrapper md:w-[904px] flex justify-center items-center mb-20 w-auto md:h-[93px] h-auto">
-      <Image src="/images/4.png" alt='logo' width={500} height={300} />
+      <Image src="/images/4.png" alt='logo' width={500} height={100} />
     </div>
   </ main>
   )

@@ -51,7 +51,7 @@ export default function BlogPage() {
                   alt={blog.title}
                 
                   width={300}
-                  height={300}
+                  height={200}
                 
                 />
               </div>

@@ -20,7 +20,7 @@ export default async function Page() {
  <ProductList products={products} title={true} categories={[]} />
     </div>
     <div className="wrapper md:w-[904px] flex justify-center items-center mb-20 w-auto md:h-[93px] h-auto">
-            <Image src="/images/4.png" alt="logo" width={500} height={300} />
+            <Image src="/images/4.png" alt="logo" width={500} height={100} />
           </div>
     </div>
   );

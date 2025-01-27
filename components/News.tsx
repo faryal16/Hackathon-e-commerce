@@ -27,7 +27,7 @@ const News = () => {
       </div>
       <div className="flex justify-center items-center mt-28">
 
-<Image src="/images/4.png" alt='news' width={500} height={500}/>
+<Image src="/images/4.png" alt='news' width={600} height={100}/>
       </div>
       
     </div>

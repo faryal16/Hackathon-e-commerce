@@ -118,8 +118,8 @@ const CartPage = () => {
                                <Image
                                  src={urlFor(product.image).url()}
                                  alt="productImage"
-                                 width={300}
-                                 height={300}
+                                 width={100}
+                                 height={100}
                                  loading="lazy"
                                  className="w-16 h-16 md:w-full md:h-24 object-cover group-hover:scale-105 overflow-hidden transition-transform duration-500"
                                />
