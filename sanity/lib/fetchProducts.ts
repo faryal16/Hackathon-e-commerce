@@ -1,5 +1,7 @@
 // utils/fetchProducts.ts
-import { sanityFetch } from "@/sanity/lib/fetch";
+
+import { sanityFetch } from "./live";
+
 
 export const fetchProducts = async (query: string) => {
   try {

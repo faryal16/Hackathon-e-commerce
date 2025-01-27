@@ -7,7 +7,7 @@ import { BsVectorPen } from "react-icons/bs";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { notFound } from "next/navigation"; // Helper to handle 404
 import Comment from "@/components/Comment";
-
+import { PageProps } from "@/.next/types/app/blog/[slug]/page";
 // Static data for the blogs
 const topBlogs = [
   {
@@ -65,6 +65,11 @@ const topBlogs = [
       "More off this less hello samlande lied much over tightly circa horse taped mightly.",
   }
 ];
+interface BlogPageProps extends Omit<PageProps, 'params'> {
+  params: Promise<{
+    slug: string;
+  }>;
+}
 
 // Generate static params for dynamic route
 export async function generateStaticParams() {
@@ -73,8 +78,8 @@ export async function generateStaticParams() {
   }));
 }
 
-const BlogPage = ({ params }: { params: { slug: string } }) => {
-  const blog = topBlogs.find((b) => b.id === params.slug);
+const BlogPage = ({ params }: BlogPageProps) => {
+  const blog = topBlogs.find(async (b) => b.id === (await params).slug);
 
   // If the blog is not found, return a 404 page
   if (!blog) {

@@ -11,7 +11,7 @@ type Product = {
   description: string;
   price: number;
   discountPercentage?: number;
-  image?: any; // Update to match your Sanity schema if needed
+  image?: string |null; // Update to match your Sanity schema if needed
   slug?: { current: string };
 };
 

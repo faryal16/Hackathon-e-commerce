@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../lib/live";
 import { CouponCode } from "./couponCodes";
-import { Product, Slug } from "@/sanity.types";
+import {  Slug } from "@/sanity.types";
 
 
 export const getAllProducts = async () => {

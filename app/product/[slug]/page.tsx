@@ -17,12 +17,16 @@ import {  getAllProducts } from "@/sanity/helpers";
 import ProductThumbnail from "@/components/ProductThumbnail";
 
 import ProductCard from "@/components/ProductCard";
+import { PageProps } from "@/.next/types/app/product/[slug]/page";
 
-export interface ProductDetailsProps {
-  params: {
+
+
+interface ProductDetailsProps extends PageProps {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
+
 
 const ProductPage = async ({ params }: ProductDetailsProps) => {
   const products = await getAllProducts();
