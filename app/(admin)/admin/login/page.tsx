@@ -5,14 +5,15 @@ import Image from "next/legacy/image";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
-import router from 'next/router';
+// import router from 'next/router';
 
 import Title from '@/components/Title'
 import React from 'react'
 
-const Login = () => {
+const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
  // app/(auth)/login/page.tsx
 // Modify the handleSubmit function:
@@ -22,7 +23,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     
     try {
       // Add your API call here to login
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,14 +35,14 @@ const handleSubmit = async (e: React.FormEvent) => {
       });
   
       if (response.ok) {
-        // Redirect to account page or dashboard
-        router.push('/account');
+        window.location.href = '/admin/dashboard'; // Redirect to admin dashboard after successful login
       } else {
-        throw new Error('Login failed');
+        setError('Invalid email or password.');
       }
     } catch (error) {
       alert(`Login failed ${error}`);
     }
+    
   };
   
   return (
@@ -60,6 +61,8 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
 
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <h2 className="text-2xl mb-4">Admin Login</h2>
+          {error && <p className="text-red-500">{error}</p>}
             <div className="space-y-6">
               <div>
                 <Input
@@ -115,4 +118,4 @@ const handleSubmit = async (e: React.FormEvent) => {
   )
 }
 
-export default Login
+export default AdminLogin

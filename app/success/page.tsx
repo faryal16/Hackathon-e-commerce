@@ -59,7 +59,7 @@ hours. You will receive an email confirmation when your order is completed.
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
          
           <Link
-            href="/orders"
+            href="/order"
             className="flex items-center justify-center px-4 py-3 font-semibold bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-all duration-300 shadow-md"
           >
             <Package className="w-5 h-5 mr-2" />

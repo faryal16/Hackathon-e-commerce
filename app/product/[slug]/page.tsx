@@ -17,7 +17,10 @@ import {  getAllProducts } from "@/sanity/helpers";
 import ProductThumbnail from "@/components/ProductThumbnail";
 
 import ProductCard from "@/components/ProductCard";
-import { PageProps } from "@/.next/types/app/page";
+import { PageProps } from "@/.next/types/app/success/page";
+
+
+
 
 
 

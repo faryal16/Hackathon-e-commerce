@@ -1,16 +1,16 @@
 import { Category, Product } from "@/sanity.types";
 import React from "react";
 import ProductGrid from "@/components/ProductGrid";
-import Categories from "@/components/Categories";
+// import Categories from "@/components/Categories";
 interface Props {
   products: Product[];
   categories: Category[];
   title?: boolean;
 }
-const ProductList = ({ products, categories, title }: Props) => {
+const ProductList = ({ products,  title }: Props) => {
   return (
     <div>
-      <Categories categories={categories} />
+      {/* <Categories categories={categories} /> */}
       {title && (
         <div className="pb-5">
           <h2 className="text-2xl font-semibold text-gray-600">

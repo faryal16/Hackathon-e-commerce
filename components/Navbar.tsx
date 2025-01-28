@@ -36,7 +36,7 @@ export default function Navbar() {
                 href="/product"
                 className="flex justify-center hover:underline items-end gap-1 hover:text-[#FB2E86]"
               >
-                {" "}
+               
                 Products
               </Link>
 
@@ -78,12 +78,22 @@ export default function Navbar() {
                   />
                   <Search className="w-12 h-12 bg-[#FB2E86] text-white cursor-pointer p-2" />
                 </form>
-
+</Link>
                 {/* Icons */}
-                <div className="flex  items-center space-x-8">
-                  <Search className="h-5 w-5 md:hidden text-gray-500 cursor-pointer" />
-                </div>
-              </Link>
+                <Link href="/search">
+                <form
+                  action="/search"
+                  className="flex md:hidden items-center   "
+                >
+                  <input
+                    type="text"
+                    name="query"
+                    placeholder=""
+                    className="bg-transparent h-12 px-3  w-48 lg:w-64 "
+                  />
+                  <Search className="w-12 h-12 text-[#FB2E86] bg-white cursor-pointer p-2" />
+                </form>
+</Link>
 
               {/* Mobile menu button */}
               <div className="md:hidden ">

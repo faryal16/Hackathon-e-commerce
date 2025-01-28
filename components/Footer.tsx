@@ -18,13 +18,13 @@ function Footer() {
           <Link href="/" className="text-2xl mb-8 text-black md:text-4xl font-bold">
               Hekto
             </Link>
-            <div className="flex h-[40px] md:w-[300px] w-[100px] justify-between items-center bg-white/50 rounded-md ">
+            <div className="flex justify-between items-center bg-white/50 rounded-md ">
               <input
                 type="text"
                 placeholder="Enter Email address"
-                className="bg-transparent outline-none  px-4 "
+                className="bg-transparent outline-none  h-[40px] md:w-[300px] w-[100px] px-2 md:px-4 "
               />
-              <button className="h-[40px] w-[100px]  bg-[#FB2E86] text-white cursor-pointer  px-4" > Signup</button> 
+              <button className="h-[40px] md:w-[100px] w-[60px]  bg-[#FB2E86] text-white cursor-pointer px-2 md:px-4" > Signup</button> 
             </div>
             <p className="text-base w-[150px]  text-center sm:text-left">
             Contact Info
@@ -120,15 +120,15 @@ function Footer() {
         
       </div>
       {/* Footer Bottom */}
-      <div className="  flex justify-between w-full items-center text-[#9DA0AE] p-4 px-36  bg-[#E7E4F8] ">
-       <p className="">
+      <div className="  flex md:flow-row flex-col justify-between w-full items-center text-[#9DA0AE] p-4 md:px-36 px-4 bg-[#E7E4F8] ">
+       <p className="w-full">
 &copy;Webecy - All Rights Reserved</p>
         
         <div className="flex gap-x-3 items-center justify-center sm:justify-start ">
           <FaFacebookF className="h-[20px] bg-[#0D0E43] rounded-full w-[20px] p-1 text-white " />
           <FaTwitter className="h-[20px] bg-[#0D0E43] rounded-full w-[20px] p-1 text-white " />
           <FaLinkedin className="h-[20px] bg-[#0D0E43] rounded-full mr-12 w-[20px] p-1 text-white " />
-          <Link href="#"><FaArrowUp className="size-10 cursor-pointer text-[#0D0E43] " /></Link>
+          <Link href="#"><FaArrowUp className="md:size-10 size-5 cursor-pointer text-[#0D0E43] " /></Link>
         </div>
       </div>
       </footer>

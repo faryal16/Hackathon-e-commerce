@@ -13,7 +13,7 @@ const not_found = () => {
           <Link href="/">Back To Home</Link></button>
     </div>
      <div className="md:w-[904px] flex justify-center items-center mb-20 w-auto md:h-[93px] h-auto">
-      <Image src="/images/4.png" alt='logo' width={500} height={300} />
+      <Image src="/images/4.png" alt='logo' width={500} height={100} />
     </div></div>
   )
 }
