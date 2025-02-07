@@ -79,14 +79,7 @@ export default async function Discount() {
 
           {/* Right Image Section */}
           <div className="flex-1 mt-10 lg:mt-0 flex justify-center relative">
-  {/* Irregular Circle Background */}
-  <div
-    className="absolute -z-10 w-[500px] h-[500px] bg-[#ebd1eb] blur-md"
-    style={{
-      clipPath:
-        'path("M325 0 C 450 50, 400 150, 450 325 C 400 300, 450 300, 325 450 C 150 400, 50 400, 0 325 C 50 150, 150 50, 325 0")',
-    }}
-  ></div>
+
 
   {/* Product Image */}
   <Link href={`/product/${productSlug}`}>

@@ -21,6 +21,7 @@ import {
 } from "@/action/createCheckoutSession";
 import Title from "@/components/Title";
 import { X } from "lucide-react";
+import Link from "next/link";
 
 const CartPage = () => {
   const {
@@ -91,10 +92,11 @@ const CartPage = () => {
               <div className="grid lg:grid-cols-3 md:gap-8">
                 {/* Product View start */}
                 <div className="lg:col-span-2 rounded-lg">
-                  <div className="grid grid-cols-5 md:grid-cols-6 text-left p-4 py-20 text-[#151875] md:text-[22px] text-xl font-bold">
+                  <div className="grid grid-cols-5 md:grid-cols-6 text-left p-4 py-20 text-[#151875] md:text-[22px] sm:text-xl text-base font-bold">
                     <h2 className="col-span-2 md:col-span-3">Product</h2>
                     <h2  >Price</h2>
-                    <h2  >Quantity</h2>
+                    <h2 className="sm:block hidden" >Quantity</h2>
+                    <h2 className="block sm:hidden" >Qty</h2>
                     <h2  >Total</h2>
                   </div>
                   <div className="">
@@ -126,7 +128,7 @@ const CartPage = () => {
                            
                            </div>
                             )}
-                            <h2 className="text-black text-base font-semibold">{product?.name}</h2>
+                            <h2 className="text-black sm:block hidden text-base font-semibold">{product?.name}</h2>
                           </div>
                           <div className="text-gray-500 text-base">
                             <PriceFormatter amount={product?.price} />
@@ -145,19 +147,20 @@ const CartPage = () => {
                         </div>
                       );
                     })}
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col justify-between items-center">
                         <Button  className="px-16 py-6 mt-20 rounded-[6px] text-white bg-[#FB2E86] hover:bg-pink-800 font-semibold text-lg"
                       variant="destructive">
                   
-                  
+                  <Link href="/product">
                   Update Cart
+                  </Link>
 
                    
                    
                         </Button>
                     <Button
                       onClick={handleResetCart}
-                      className="px-16 py-6 mt-20 rounded-[6px] text-white bg-[#FB2E86] hover:bg-pink-800 font-semibold text-lg"
+                      className="px-16 py-6 sm:mt-20 mt-12 rounded-[6px] text-white bg-[#FB2E86] hover:bg-pink-800 font-semibold text-lg"
                       variant="destructive"
                       >
                       Clear Cart
@@ -166,50 +169,55 @@ const CartPage = () => {
 
                   </div>
                 </div>
+                <div className="md:hidden fixed bottom-0 left-0 sm:w-full w-auto bg-white">
+  <div className="bg-white p-4 rounded-lg border mx-4 sm:mx-8 md:mx-4">
+    <div className="sm:space-y-4 space-y-2">
+      <h2 className="text-[18px] text-center text-[#1D3178] font-bold mb-2">
+        Order Summary
+      </h2>
 
-                <div className="md:hidden fixed bottom-0 left-0 w-full bg-white">
-                  <div className="bg-white p-4 rounded-lg border mx-4">
-                    <div className="space-y-4">
-                    <h2 className="text-[18px] text-center text-[#1D3178] font-bold mb-2">
-                      Order Summary
-                    </h2>
-                      <div className="flex justify-between text-[16px] text-[#1D3178]">
-                        <span>SubTotal:</span>
-                        <PriceFormatter amount={getSubTotalPrice()} className="text-[16px]" />
-                      </div>
-                      <Separator className="bg-[#E8E6F1]" />
-                      <div className="flex justify-between text-[#1D3178]">
-                        <span>Discount:</span>
-                        <PriceFormatter className="text-[16px]"
-                          amount={getSubTotalPrice() - getTotalPrice()}
-                        />
-                      </div>
+      <div className="flex sm:justify-between justify-center gap-4 sm:gap-8 text-[16px] text-[#1D3178]">
+        <span>SubTotal:</span>
+        <PriceFormatter amount={getSubTotalPrice()} className="text-[16px]" />
+      </div>
 
-                      <Separator className="bg-[#E8E6F1]" />
-                      <div className="flex justify-between text-[#1D3178] font-semibold text-[16px]">
-                        <span>Total:</span>
+      <Separator className="bg-[#E8E6F1] sm:w-full w-auto" />
 
-                        <PriceFormatter
-                          amount={useCartStore?.getState().getTotalPrice()}
-                          className="text-lg font-bold text-[#1D3178]"
-                        />
-                      </div>
-                      <div className="flex justify-start items-center gap-2">
-                        <input type="checkbox" className="text-green-400" />
-                        <p className="text-sm text-[#8A91AB]">Shipping & taxes calculated at checkout</p>
-                      </div>
-                      <Button
-                        onClick={handleCheckout}
-                        disabled={loading}
-                        className="w-full bg-[#19D16F] hover:bg-[#219b5a] text-white text-[14px]"
-                        size="lg"
-                      >
-                        {loading ? "Processing" : "Proceed to Checkout"}
-                      </Button>
-                    
-                    </div>
-                  </div>
-                </div>
+      <div className="flex sm:justify-between justify-center gap-4 sm:gap-8 text-[#1D3178]">
+        <span>Discount:</span>
+        <PriceFormatter className="text-[16px]"
+          amount={getSubTotalPrice() - getTotalPrice()}
+        />
+      </div>
+
+      <Separator className="bg-[#E8E6F1] sm:w-full w-auto" />
+
+      <div className="flex sm:justify-between justify-center gap-4 sm:gap-8 text-[#1D3178] font-semibold text-[16px]">
+        <span>Total:</span>
+
+        <PriceFormatter
+          amount={useCartStore?.getState().getTotalPrice()}
+          className="text-lg font-bold text-[#1D3178]"
+        />
+      </div>
+
+      <div className="flex sm:justify-start justify-center items-center gap-2">
+        <input type="checkbox" className="text-green-400" />
+        <p className="text-sm text-[#8A91AB]">Shipping & taxes calculated at checkout</p>
+      </div>
+
+      <Button
+        onClick={handleCheckout}
+        disabled={loading}
+        className="w-auto sm:w-full bg-[#19D16F] hover:bg-[#219b5a] text-white text-[14px]"
+        size="lg"
+      >
+        {loading ? "Processing" : "Proceed to Checkout"}
+      </Button>
+    </div>
+  </div>
+</div>
+
                 <div className="lg:col-span-1 py-20">
                     <h2 className="text-[20px] text-center  text-[#1D3178] font-bold mb-20">
                     Cart Totals
@@ -244,7 +252,7 @@ const CartPage = () => {
                       <Button
                         onClick={handleCheckout}
                         disabled={loading}
-                        className="w-full bg-[#19D16F] hover:bg-[#219b5a] text-white text-[14px]"
+                        className="w-full bg-[#19D16F] flex sm:justify-start justify-center  hover:bg-[#219b5a] text-white text-[14px]"
                         size="lg"
                       >
                         {loading ? "Processing" : "Proceed to Checkout"}

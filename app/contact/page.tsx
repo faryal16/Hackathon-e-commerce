@@ -97,7 +97,7 @@ const ContactUs = () => {
                   placeholder="Subject *"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-[200%] border-[1px] border-[#8A8FB9] px-6 py-2 m-2 rounded-sm focus:border-black focus:ring-0"
+                  className="sm:w-[200%] w-full border-[1px] border-[#8A8FB9] px-6 py-2 m-2 rounded-sm focus:border-black focus:ring-0"
                   required
                 />
               </div>

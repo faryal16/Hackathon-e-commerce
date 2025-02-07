@@ -8,7 +8,7 @@ export default function Navbar() {
     <div className="bg-white pt-4">
       <nav className="wrapper  h-[60px]  text-[#0D0E43] ">
         <div className=" px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center sm:justify-between justify-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="text-2xl md:text-4xl font-bold">
@@ -89,7 +89,7 @@ export default function Navbar() {
                     type="text"
                     name="query"
                     placeholder=""
-                    className="bg-transparent h-12 px-3  w-48 lg:w-64 "
+                    className="bg-transparent h-12 px-3  sm:w-48 w-4 lg:w-64 "
                   />
                   <Search className="w-12 h-12 text-[#FB2E86] bg-white cursor-pointer p-2" />
                 </form>

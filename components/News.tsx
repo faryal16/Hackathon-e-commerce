@@ -15,7 +15,7 @@ const News = () => {
           className="opacity-80"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center  px-4">
-          <h1 className="text-[24px] sm:text-[30px] md:text-[35px] text-[#0D0E43] w-[574px] font-semibold">
+          <h1 className="text-[20px] sm:text-[30px] md:text-[35px] text-[#0D0E43] sm:w-[574px] w-auto font-semibold">
           Get Leatest Update By Subscribe
 0ur Newslater
 

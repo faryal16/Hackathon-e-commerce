@@ -38,7 +38,7 @@ export default async function FeaturedPage() {
         hover:text-[#FB2E86] hover:underline  font-semibold">Special Offer</Link>
       </div>
       {/* Image Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3  gap-6">
+      <div className="grid sm:grid-cols-2 grid-cols-1  lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <div key={product._id} className="border border-gray-300 rounded-lg overflow-hidden group text-sm">
             <div className="border-b border-b-gray-300  overflow-hidden relative">

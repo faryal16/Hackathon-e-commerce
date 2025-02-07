@@ -27,7 +27,7 @@ export  const Category = async () => {
       <h1 className="text-3xl md:text-4xl lg:text-5xl mb-16 text-[#1A0B5B] font-bold">
       Top Categories
       </h1>
-      <div className="grid grid-cols-2  lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 grid-cols-1  lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product._id} className="border border-gray-300 rounded-t-full overflow-hidden group text-sm">
             <div className="border-b border-b-gray-300  bg-gray-200 overflow-hidden rounded-full relative">

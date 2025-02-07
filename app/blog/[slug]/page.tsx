@@ -100,16 +100,16 @@ const BlogPage = ({ params }: BlogPageProps) => {
           className="w-full h-auto object-cover"
         />
         <div className="p-6">
-          <div className="flex items-center justify-center gap-40 mb-6">
+          <div className="flex md:flex-row flex-col items-center justify-center sm:gap-40 gap-8 mb-6">
             <div className="flex justify-start items-center gap-2">
               <BsVectorPen size={34} className="text-[#FB2E86]" />
-              <h2 className="flex items-center bg-[#FFE7F9] text-2xl font-semibold text-[#0D0E43] py-2 px-20 ">
+              <h2 className="flex items-center bg-[#FFE7F9] text-2xl font-semibold text-[#0D0E43] py-2 px-6 sm:px-20 ">
                 {blog.author}
               </h2>
             </div>
             <div className="flex justify-start items-center gap-3">
-              <MdOutlineCalendarMonth size={34} className="text-[#FFA454]" />
-              <p className="flex items-center text-2xl bg-[#FFECE2] font-semibold py-2 px-20 text-[#0D0E43] gap-2">
+              <MdOutlineCalendarMonth size={34} className="text-[#FFA454] text-[34px] sm:text-[24px] xs:text-[18px]" />
+              <p className="flex items-center text-2xl bg-[#FFECE2] font-semibold py-2 px-6 sm:px-20 text-[#0D0E43] gap-2">
                 {blog.date}
               </p>
             </div>

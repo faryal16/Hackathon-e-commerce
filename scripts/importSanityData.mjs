@@ -15,7 +15,7 @@ const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   useCdn: false,
   token: process.env.SANITY_API_TOKEN,
-  apiVersion: '2021-08-31'
+  apiVersion:  '2025-01-18'
 })
 
 // Function to upload an image to Sanity

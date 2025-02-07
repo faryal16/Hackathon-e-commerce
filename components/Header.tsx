@@ -3,9 +3,9 @@
  import Link from "next/link";
  import { MdOutlineEmail, MdPhoneInTalk } from "react-icons/md";
  import { IoIosArrowDown } from "react-icons/io";
- import { FaRegHeart } from "react-icons/fa";
+ 
  import {  ClerkLoaded,  SignInButton, UserButton } from "@clerk/nextjs";
- import { User } from "lucide-react";
+ import { ShoppingBag, User } from "lucide-react";
  import CartIcon from "./CartIcon";
  import Navbar from "./Navbar";
  import { auth, currentUser } from "@clerk/nextjs/server";
@@ -38,7 +38,7 @@
              </Link>
              <Link
                href="/"
-               className="text-sm md:text-base flex justify-center items-center gap-2 md:gap-4 font-semibold"
+               className="text-sm md:text-base sm:flex hidden justify-center items-center gap-2 md:gap-4 font-semibold"
              >
                <MdPhoneInTalk /> (12345) 67890
              </Link>
@@ -68,12 +68,12 @@
              
  
                <Link
-                 href="/order"
+                 href="https://hekto-admin-dashboard.vercel.app/"
                  className="flex justify-center items-center mr-2 gap-1 md:gap-2 hoverEffect"
                  >
                     <div className="text-[35px]  cursor-pointer relative transition-transform duration-400 transform hover:scale-110 ease-in-out border-0 bg-transparent">
  
-                 <FaRegHeart size={20} />
+                 <ShoppingBag size={20} />
                  <p className="text-xs">
  
                     <span className="absolute right-[-6px] top-[-4px] text-[10px] bg-white text-black  w-[12px] h-[12px] rounded-full text-center font-semibold">

@@ -1,4 +1,4 @@
-import Acceory from '@/components/Acceory'
+
 import Title from '@/components/Title'
 import Image from "next/legacy/image";
 import Container from "@/components/Container";
@@ -26,7 +26,7 @@ const OrdersPage = async () => {
 
   return (
     <div> <Title title={'Shop List'} tag={'Shop List'} />
-    <Acceory/>
+  
     <Container className="py-10">
         {orders?.length ? (
           <Card className="w-full">

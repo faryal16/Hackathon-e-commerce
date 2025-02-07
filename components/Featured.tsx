@@ -25,7 +25,7 @@ export default async function FeaturedPage() {
       <h1 className="text-3xl md:text-4xl lg:text-5xl mb-16 text-[#1A0B5B] font-bold">
         Featured Products
       </h1>
-      <div className="grid grid-cols-2  lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 grid-cols-1  lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product._id} className="border border-gray-300 rounded-lg overflow-hidden group text-sm">
             <div className="border-b border-b-gray-300  overflow-hidden relative">
