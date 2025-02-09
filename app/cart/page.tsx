@@ -147,7 +147,7 @@ const CartPage = () => {
                         </div>
                       );
                     })}
-                    <div className="flex flex-col justify-between items-center">
+                    <div className="flex md:flex-row flex-col justify-between items-center">
                         <Button  className="px-16 py-6 mt-20 rounded-[6px] text-white bg-[#FB2E86] hover:bg-pink-800 font-semibold text-lg"
                       variant="destructive">
                   
